@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore our comprehensive home remodeling services - Bathroom, Kitchen, Exterior, Indoor, Fence, and Basement remodeling with free estimates.">
+    <title>Our Services | Home Remodeling Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --primary: #1a3c34;
+            --primary-light: #2d5a4e;
+            --primary-dark: #0f2820;
+            --accent: #c9a96e;
+            --accent-light: #dfc28a;
+            --accent-dark: #b08d4f;
+            --white: #ffffff;
+            --off-white: #f8f6f3;
+            --light-gray: #e8e4df;
+            --text: #2c2c2c;
+            --text-light: #666;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,0.12);
+            --radius: 12px;
+            --radius-lg: 20px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --font-heading: 'Playfair Display', Georgia, serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); color: var(--text); line-height: 1.7; background: var(--white); }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        ul { list-style: none; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section-padding { padding: 100px 0; }
+
+
+        .page-hero { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); padding: 150px 0 80px; text-align: center; color: var(--white); }
+        .page-hero h1 { font-family: var(--font-heading); font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 10px; }
+        .breadcrumb { font-size: 0.9rem; color: rgba(255,255,255,0.6); }
+        .breadcrumb a { color: var(--accent); }
+
+        /* Service Detail Sections */
+        .service-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            padding: 80px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .service-detail:nth-child(even) {
+            direction: rtl;
+        }
+
+        .service-detail:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .service-detail-image {
+            height: 400px;
+            border-radius: var(--radius-lg);
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: var(--accent);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-detail-image .overlay-label {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: var(--accent);
+            color: var(--primary-dark);
+            padding: 6px 16px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        .service-detail-content h2 {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .service-detail-content p {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .service-features-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .service-features-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+
+        .service-features-list li i {
+            color: var(--accent);
+            font-size: 0.8rem;
+        }
+
+        .service-detail-content .price-range {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--off-white);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .service-detail-content .price-range i {
+            color: var(--accent);
+        }
+
+        /* Service Overview Cards */
+        .services-overview {
+            background: var(--off-white);
+        }
+
+        .services-overview-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .overview-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .overview-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .overview-card i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .overview-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .overview-card p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        .footer { background: var(--primary-dark); color: rgba(255,255,255,0.7); padding: 70px 0 0; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px; padding-bottom: 50px; }
+        .footer h4 { font-family: var(--font-heading); color: var(--white); font-size: 1.1rem; margin-bottom: 20px; }
+        .footer-links a { display: block; font-size: 0.88rem; padding: 6px 0; color: rgba(255,255,255,0.6); }
+        .footer-links a:hover { color: var(--accent); padding-left: 5px; }
+        .footer-social { display: flex; gap: 10px; }
+        .footer-social a { width: 40px; height: 40px; border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.7); }
+        .footer-social a:hover { background: var(--accent); border-color: var(--accent); color: var(--primary-dark); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding: 20px 0; display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem; }
+        .footer-bottom-links { display: flex; gap: 20px; }
+        .footer-bottom-links a:hover { color: var(--accent); }
+        .newsletter-form { display: flex; gap: 8px; }
+        .newsletter-form input { flex: 1; padding: 12px 16px; border: 1px solid rgba(255,255,255,0.2); border-radius: var(--radius); background: rgba(255,255,255,0.05); color: var(--white); font-size: 0.85rem; font-family: var(--font-body); }
+        .newsletter-form input::placeholder { color: rgba(255,255,255,0.4); }
+        .newsletter-form button { padding: 12px 20px; background: var(--accent); color: var(--primary-dark); border: none; border-radius: var(--radius); cursor: pointer; font-weight: 600; }
+
+        @media (max-width: 1024px) {
+            .nav-links { display: none; }
+            .nav-toggle { display: flex; }
+            .service-detail { grid-template-columns: 1fr; }
+            .service-detail:nth-child(even) { direction: ltr; }
+            .services-overview-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .section-padding { padding: 70px 0; }
+            .service-detail { padding: 50px 0; }
+            .services-overview-grid { grid-template-columns: 1fr; }
+            .service-features-list { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- ===== UNIFIED NAVBAR (Same as index.html, but with navbar-solid class) ===== -->
+    <nav class="navbar navbar-solid" id="navbar" role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <a href="index.html" class="nav-logo" aria-label="Home Remodeling Services - Home">
+                <div class="nav-logo-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <div class="nav-logo-text">
+                    Home Remodeling
+                    <span>Services</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation - IDENTICAL to index.html -->
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html" class="active">About Us</a>
+                <a href="services.html">Services</a>
+                <a href="projects.html">Projects</a>
+                <a href="index.html#testimonials">Reviews</a>
+                <a href="index.html#faq">FAQ</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <!-- Nav Right - IDENTICAL to index.html -->
+            <div class="nav-right">
+                <a href="tel:5551234567" class="nav-phone" aria-label="Call us">
+                    <i class="fas fa-phone-alt"></i>
+                    (555) 123-4567
+                </a>
+                <div class="nav-separator"></div>
+                <a href="index.html#booking" class="btn btn-primary nav-cta">
+                    <i class="fas fa-calendar-check"></i>
+                    Book Now
+                </a>
+            </div>
+
+            <!-- Mobile Toggle - IDENTICAL -->
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== UNIFIED MOBILE MENU (Same structure on all pages) ===== -->
+    <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+        <button class="close-btn" id="mobileClose" aria-label="Close menu">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <div class="mobile-menu-content">
+            <div class="mobile-menu-logo">
+                <div class="nav-logo-icon"><i class="fas fa-home"></i></div>
+                <div class="nav-logo-text">Home Remodeling<span>Services</span></div>
+            </div>
+
+            <div class="mobile-nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html" class="active">About Us</a>
+                <a href="services.html">Services</a>
+                <a href="projects.html">Projects</a>
+                <a href="index.html#testimonials">Reviews</a>
+                <a href="index.html#faq">FAQ</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <div class="mobile-contact-info">
+                <a href="tel:5551234567"><i class="fas fa-phone-alt"></i> (555) 123-4567</a>
+                <a href="mailto:info@homeremodelingservices.com"><i class="fas fa-envelope"></i> info@homeremodelingservices.com</a>
+            </div>
+
+            <a href="index.html#booking" class="btn btn-primary mobile-cta">
+                <i class="fas fa-calendar-check"></i> Book Free Consultation
+            </a>
+
+            <div class="mobile-social">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Our Services</h1>
+            <p class="breadcrumb"><a href="index.html">Home</a> / Services</p>
+        </div>
+    </section>
+
+    <main>
+        <!-- Quick Overview -->
+        <section class="services-overview section-padding">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-label">What We Do</span>
+                    <h2 class="section-title">Comprehensive Remodeling Solutions</h2>
+                    <p class="section-subtitle">Click any service to jump to details below.</p>
+                </div>
+                <div class="services-overview-grid">
+                    <a href="#bathroom" class="overview-card" data-aos="fade-up" data-aos-delay="0">
+                        <i class="fas fa-bath"></i>
+                        <h3>Bathroom Remodeling</h3>
+                        <p>Spa-like transformations</p>
+                    </a>
+                    <a href="#kitchen" class="overview-card" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-utensils"></i>
+                        <h3>Kitchen Remodeling</h3>
+                        <p>Dream kitchen designs</p>
+                    </a>
+                    <a href="#exterior" class="overview-card" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fas fa-home"></i>
+                        <h3>Exterior Remodeling</h3>
+                        <p>Curb appeal boost</p>
+                    </a>
+                    <a href="#indoor" class="overview-card" data-aos="fade-up" data-aos-delay="300">
+                        <i class="fas fa-couch"></i>
+                        <h3>Indoor Remodeling</h3>
+                        <p>Living space upgrades</p>
+                    </a>
+                    <a href="#fence" class="overview-card" data-aos="fade-up" data-aos-delay="400">
+                        <i class="fas fa-border-all"></i>
+                        <h3>Fence Remodeling</h3>
+                        <p>Privacy & security</p>
+                    </a>
+                    <a href="#basement" class="overview-card" data-aos="fade-up" data-aos-delay="500">
+                        <i class="fas fa-warehouse"></i>
+                        <h3>Basement Remodeling</h3>
+                        <p>Hidden potential unlocked</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Details -->
+        <section class="section-padding" style="padding-top:0;">
+            <div class="container">
+                <!-- Bathroom -->
+                <div class="service-detail" id="bathroom" data-aos="fade-up">
+                    <div class="service-detail-image">
+                        <i class="fas fa-bath"></i>
+                        <span class="overlay-label">Most Popular</span>
+                    </div>
+                    <div class="service-detail-content">
+                        <span class="section-label">Service</span>
+                        <h2>Bathroom Remodeling</h2>
+                        <p>Transform your bathroom into a luxurious retreat. From modern walk-in showers to elegant soaking tubs, our team creates spa-like experiences right in your home.</p>
+                        <div class="price-range"><i class="fas fa-tag"></i> Starting from \$8,500</div>
+                        <ul class="service-features-list">
+                            <li><i class="fas fa-check-circle"></i> Custom vanity installation</li>
+                            <li><i class="fas fa-check-circle"></i> Walk-in shower design</li>
+                            <li><i class="fas fa-check-circle"></i> Tile & stone work</li>
+                            <li><i class="fas fa-check-circle"></i> Heated flooring</li>
+                            <li><i class="fas fa-check-circle"></i> Lighting upgrades</li>
+                            <li><i class="fas fa-check-circle"></i> Plumbing renovation</li>
+                        </ul>
+                        <a href="index.html#booking" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Get Free Estimate</a>
+                    </div>
+                </div>
+
+                <!-- Kitchen -->
+                <div class="service-detail" id="kitchen" data-aos="fade-up">
+                    <div class="service-detail-image">
+                        <i class="fas fa-utensils"></i>
+                        <span class="overlay-label">Best Value</span>
+                    </div>
+                    <div class="service-detail-content">
+                        <span class="section-label">Service</span>
+                        <h2>Kitchen Remodeling</h2>
+                        <p>Create the kitchen of your dreams with custom cabinetry, premium countertops, and smart layouts designed for both beauty and functionality.</p>
+                        <div class="price-range"><i class="fas fa-tag"></i> Starting from \$15,000</div>
+                        <ul class="service-features-list">
+                            <li><i class="fas fa-check-circle"></i> Custom cabinetry</li>
+                            <li><i class="fas fa-check-circle"></i> Granite/quartz countertops</li>
+                            <li><i class="fas fa-check-circle"></i> Island installation</li>
+                            <li><i class="fas fa-check-circle"></i> Backsplash design</li>
+                            <li><i class="fas fa-check-circle"></i> Appliance upgrades</li>
+                            <li><i class="fas fa-check-circle"></i> Under-cabinet lighting</li>
+                        </ul>
+                        <a href="index.html#booking" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Get Free Estimate</a>
+                    </div>
+                </div>
+
+                <!-- Exterior -->
+                <div class="service-detail" id="exterior" data-aos="fade-up">
+                    <div class="service-detail-image">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="service-detail-content">
+                        <span class="section-label">Service</span>
+                        <h2>Exterior Remodeling</h2>
+                        <p>Boost your home's curb appeal and value with professional exterior upgrades. From siding and roofing to outdoor living spaces, we transform your home's exterior.</p>
+                        <div class="price-range"><i class="fas fa-tag"></i> Starting from \$5,000</div>
+                        <ul class="service-features-list">
+                            <li><i class="fas fa-check-circle"></i> Siding replacement</li>
+                            <li><i class="fas fa-check-circle"></i> Window & door installation</li>
+                            <li><i class="fas fa-check-circle"></i> Deck & patio construction</li>
+                            <li><i class="fas fa-check-circle"></i> Roofing upgrades</li>
+                            <li><i class="fas fa-check-circle"></i> Outdoor kitchens</li>
+                            <li><i class="fas fa-check-circle"></i> Landscape integration</li>
+                        </ul>
+                        <a href="index.html#booking" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Get Free Estimate</a>
+                    </div>
+                </div>
+
+                <!-- Indoor -->
+                <div class="service-detail" id="indoor" data-aos="fade-up">
+                    <div class="service-detail-image">
+                        <i class="fas fa-couch"></i>
+                    </div>
+                    <div class="service-detail-content">
+                        <span class="section-label">Service</span>
+                        <h2>Indoor Remodeling</h2>
+                        <p>Reimagine your interior spaces with open floor plans, custom built-ins, new flooring, and modern finishes that reflect your personal style.</p>
+                        <div class="price-range"><i class="fas fa-tag"></i> Starting from \$7,000</div>
+                        <ul class="service-features-list">
+                            <li><i class="fas fa-check-circle"></i> Open floor plan conversion</li>
+                            <li><i class="fas fa-check-circle"></i> Hardwood flooring</li>
+                            <li><i class="fas fa-check-circle"></i> Custom built-in shelving</li>
+                            <li><i class="fas fa-check-circle"></i> Crown molding & trim</li>
+                            <li><i class="fas fa-check-circle"></i> Accent walls & paint</li>
+                            <li><i class="fas fa-check-circle"></i> Lighting design</li>
+                        </ul>
+                        <a href="index.html#booking" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Get Free Estimate</a>
+                    </div>
+                </div>
+
+                <!-- Fence -->
+                <div class="service-detail" id="fence" data-aos="fade-up">
+                    <div class="service-detail-image">
+                        <i class="fas fa-border-all"></i>
+                    </div>
+                    <div class="service-detail-content">
+                        <span class="section-label">Service</span>
+                        <h2>Fence Remodeling</h2>
+                        <p>Enhance your property's privacy, security, and aesthetics with custom fencing solutions built from premium materials designed to last decades.</p>
+                        <div class="price-range"><i class="fas fa-tag"></i> Starting from \$3,000</div>
+                        <ul class="service-features-list">
+                            <li><i class="fas fa-check-circle"></i> Wood privacy fences</li>
+                            <li><i class="fas fa-check-circle"></i> Vinyl fencing</li>
+                            <li><i class="fas fa-check-circle"></i> Aluminum ornamental</li>
+                            <li><i class="fas fa-check-circle"></i> Composite materials</li>
+                            <li><i class="fas fa-check-circle"></i> Gate installation</li>
+                            <li><i class="fas fa-check-circle"></i> Fence repair & restoration</li>
+                        </ul>
+                        <a href="index.html#booking" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Get Free Estimate</a>
+                    </div>
+                </div>
+
+                <!-- Basement -->
+                <div class="service-detail" id="basement" data-aos="fade-up">
+                    <div class="service-detail-image">
+                        <i class="fas fa-warehouse"></i>
+                        <span class="overlay-label">Highest ROI</span>
+                    </div>
+                    <div class="service-detail-content">
+                        <span class="section-label">Service</span>
+                        <h2>Basement Remodeling</h2>
+                        <p>Unlock your basement's full potential with finished living spaces, entertainment areas, home offices, and more — adding significant value to your home.</p>
+                        <div class="price-range"><i class="fas fa-tag"></i> Starting from \$20,000</div>
+                        <ul class="service-features-list">
+                            <li><i class="fas fa-check-circle"></i> Full basement finishing</li>
+                            <li><i class="fas fa-check-circle"></i> Home theater rooms</li>
+                            <li><i class="fas fa-check-circle"></i> Guest suite/bedroom</li>
+                            <li><i class="fas fa-check-circle"></i> Home gym/fitness area</li>
+                            <li><i class="fas fa-check-circle"></i> Wet bar & kitchenette</li>
+                            <li><i class="fas fa-check-circle"></i> Waterproofing & moisture control</li>
+                        </ul>
+                        <a href="index.html#booking" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Get Free Estimate</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section style="background:linear-gradient(135deg,var(--primary-dark),var(--primary));padding:80px 0;text-align:center;">
+            <div class="container">
+                <h2 style="font-family:var(--font-heading);color:var(--white);font-size:2rem;margin-bottom:15px;">Not Sure Which Service You Need?</h2>
+                <p style="color:rgba(255,255,255,0.8);font-size:1.1rem;margin-bottom:30px;">Book a free consultation and our experts will help you plan the perfect remodel.</p>
+                <a href="index.html#booking" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Book Free Consultation</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="index.html" class="nav-logo" style="margin-bottom:20px;">
+                        <div class="nav-logo-icon"><i class="fas fa-home"></i></div>
+                        <div class="nav-logo-text">Home Remodeling<span>Services</span></div>
+                    </a>
+                    <p style="font-size:0.9rem;margin-bottom:20px;">Transforming homes since 2005.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Services</h4>
+                    <div class="footer-links">
+                        <a href="#bathroom">Bathroom Remodeling</a>
+                        <a href="#kitchen">Kitchen Remodeling</a>
+                        <a href="#exterior">Exterior Remodeling</a>
+                        <a href="#basement">Basement Remodeling</a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Company</h4>
+                    <div class="footer-links">
+                        <a href="about.html">About Us</a>
+                        <a href="projects.html">Projects</a>
+                        <a href="contact.html">Contact</a>
+                        <a href="index.html#booking">Book Consultation</a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Stay Updated</h4>
+                    <p style="font-size:0.88rem;margin-bottom:15px;">Get tips and exclusive offers.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Home Remodeling Services. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="shared-components.js"></script>
+    <script>
+        AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
+
+       
+
+       </script>
+</body>
+</html>
